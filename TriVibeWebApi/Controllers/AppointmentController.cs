@@ -17,6 +17,11 @@ namespace TriVibeWebApi.Controllers
         {
             return Ok(await Sender.Send(request));
         }
+        [HttpPut]
+        public async Task<IActionResult> UpdateAppointment(UpdateAppointmentCommandRequest request)
+        {
+            return Ok(await Sender.Send(request));
+        }
         [HttpDelete]
         public async Task<IActionResult> DeleteAppointment(DeleteAppointmentCommandRequest request)
         {

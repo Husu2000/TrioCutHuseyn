@@ -29,8 +29,11 @@ public class GetAllBarbersQueryHandler : IRequestHandler<GetAllBarbersQueryReque
                 LastName = b.LastName,
                 Description = b.Description,
                 UserType = b.UserType,
-
-			})
+                Email = b.Email,
+                ImageUrl = b.ImageUrl,
+                PhoneNumber = b.PhoneNumber,
+                Age = b.Age
+            })
             .ToList();
         var response = new Pagination<GetAllBarbersQueryResponse>(pagedCategories, totalItems, request.Page, request.Size);
         return response;
