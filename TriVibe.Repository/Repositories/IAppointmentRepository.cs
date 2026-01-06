@@ -10,4 +10,5 @@ public interface IAppointmentRepository
     Task<List<Appointment>> GetByBarberEmailAsync(string barberEmail);
     Task<List<Appointment>> GetByCustomerEmailAsync(string customerEmail);
     Task<Appointment> GetByIdAsync(Guid Id);
+    Task Update(Appointment appointment);
 }

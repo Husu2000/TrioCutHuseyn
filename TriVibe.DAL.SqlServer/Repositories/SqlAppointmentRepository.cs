@@ -1,5 +1,4 @@
-﻿
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using TriVibe.Common.Exceptions;
 using TriVibe.DAL.SqlServer.DbContexts;
 using TriVibe.Domain.Entities.Concretes;
@@ -54,5 +53,10 @@ public class SqlAppointmentRepository : SqlBaseRepository, IAppointmentRepositor
         return appointment;
     }
 
-   
+    public async Task Update(Appointment appointment)
+    {
+        var existing = await _context.Appointments.FirstOrDefaultAsync(a => a.Id == appointment.Id && !a.IsDeleted) ?? throw new Exception();
+        _context.Appointments.Update(appointment);
+    }
+
 }

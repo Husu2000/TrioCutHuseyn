@@ -9,5 +9,6 @@ public interface IUnitOfWork
     public ICustomerRepository Customers { get; }
     public IServiceRepository Services { get; }
     public IAppointmentRepository Appointments { get; }
+    public IReviewRepository Reviews { get; }
     public Task SaveChangesAsync();
 }
